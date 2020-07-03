@@ -20,6 +20,9 @@
                     <li class="nav-item">
                         <a href="<?= URL_ROOT ?>users/logout" class="nav-link">Logout</a>
                     </li>
+                    <li class="nav-item">
+                        <span class="nav-link"><i class="fa fa-user"></i> <?= $_SESSION['user_name'] ?></span>
+                    </li>
                 <?php else: ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= URL_ROOT ?>users/register">Register</a>

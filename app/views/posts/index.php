@@ -10,14 +10,16 @@
     </div>
 </div>
 
+<?php flash('post_message'); ?>
+
 <?php foreach ($data['posts'] as $post): ?>
-<div class="card card-body mb-3">
-    <h4 class="card-title"><?= $post->title?></h4>
-    <div class="bg-light p-2 mb-3">
-        Written by <?= $post->name ?> on <?= date_format($post->postCreated, 'Y/m/d') ?>
+    <div class="card card-body mb-3">
+        <h4 class="card-title"><?= $post->title ?></h4>
+        <div class="bg-light p-2 mb-3">
+            Written by <?= $post->name ?> on <?= date('Y-m-d', strtotime($post->postCreated)) ?>
+        </div>
+        <p class="card-text"><?= $post->body ?></p>
+        <a href="<?= URL_ROOT ?>posts/show/<?= $post->postId ?>" class="btn btn-dark">More</a>
     </div>
-    <p class="card-text"><?= $post->body?></p>
-    <a href="<?= URL_ROOT?>posts/show/<?= $post->postId?>" class="btn btn-dark">More</a>
-</div>
-<?php endforeach;?>
+<?php endforeach; ?>
 <?php require_once APP_ROOT . '/views/inc/footer.php' ?>
